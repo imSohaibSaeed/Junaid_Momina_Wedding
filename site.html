@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Junaid & Mominaa Wedding</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Playfair+Display', serif;
+      background-color: #fdf1e7;
+      color: #fdf1e7;
+    }
+
+    .hero {
+      background-image: url('hero section bg.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      height: 57vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 40px;
+      position: relative;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(40, 46, 69, 0.35);
+      z-index: 0;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      animation: fadeIn 1.5s ease-out both;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .monogram-img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      margin-bottom: 30px;
+    }
+
+    .names {
+      font-size: 64px;
+      font-weight: 700;
+      color: #fdf1e7;
+      text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+      margin: 10px 0;
+    }
+
+    .date {
+      font-size: 20px;
+      color: #fdf1e7;
+      margin-top: 10px;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    }
+
+    .blessing-box {
+      margin: 50px auto;
+      padding: 20px 30px;
+      max-width: 750px;
+      border-radius: 20px;
+      background-color: #ffffff;
+      color: #282e45;
+      text-align: center;
+      font-size: 20px;
+      font-style: italic;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+      border: 3px solid transparent;
+      background-image: linear-gradient(135deg, #fdf1e7 0%, #ffffff 100%), linear-gradient(135deg, #465575, #7181a1);
+      background-origin: border-box;
+      background-clip: padding-box, border-box;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      animation: blessingPopIn 1.1s cubic-bezier(.77,0,.18,1) both;
+    }
+    @keyframes blessingPopIn {
+      from { opacity: 0; transform: scale(0.95) translateY(30px); }
+      to { opacity: 1; transform: scale(1) translateY(0); }
+    }
+    .blessing-box .ayat-arabic {
+      display: block;
+      font-size: 1.25em;
+      font-weight: 700;
+      color: #282e45;
+      margin-bottom: 12px;
+      letter-spacing: 0.5px;
+      line-height: 1.7;
+      font-style: normal;
+    }
+    .blessing-box .ayat-ref {
+      display: block;
+      font-size: 1em;
+      color: #465575;
+      margin-bottom: 10px;
+      font-style: italic;
+    }
+    .blessing-box .hint {
+      margin-top: 10px;
+      font-size: 14px;
+      color: #7181a1;
+      opacity: 0.8;
+      font-style: italic;
+    }
+    .blessing-box .translation {
+      margin-top: 18px;
+      font-size: 1em;
+      color: #282e45;
+      background: transparent;
+      border-radius: 12px;
+      padding: 10px 12px;
+      font-style: normal;
+      box-shadow: none;
+      display: none;
+      transition: all 0.3s;
+    }
+    .blessing-box.show-translation .translation {
+      display: block;
+    }
+    @media (max-width: 768px) {
+      .blessing-box {
+        padding: 18px 6vw;
+        font-size: 1.05em;
+        margin: 32px 2vw;
+        border-radius: 24px;
+        box-shadow: 0 4px 16px rgba(40,46,69,0.10);
+      }
+      .blessing-box .ayat-arabic {
+        font-size: 1.15em;
+        margin-bottom: 10px;
+      }
+      .blessing-box .translation {
+        font-size: 0.98em;
+        margin-top: 14px;
+        padding: 8px 8px;
+      }
+    }
+    @media (max-width: 480px) {
+      .blessing-box {
+        padding: 12px 2vw;
+        font-size: 0.98em;
+        margin: 18px 1vw;
+        border-radius: 18px;
+      }
+      .blessing-box .ayat-arabic {
+        font-size: 1em;
+      }
+      .blessing-box .translation {
+        font-size: 0.95em;
+        margin-top: 10px;
+        padding: 7px 4px;
+      }
+    }
+
+    .timeline-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 48px auto 48px auto;
+      padding: 28px 40px;
+      max-width: 750px;
+      border-radius: 24px;
+      background-color: #ffffff;
+      color: #282e45;
+      box-shadow: 0 8px 24px rgba(40,46,69,0.10);
+      border: 3px solid transparent;
+      background-image: linear-gradient(135deg, #fdf1e7 0%, #ffffff 65%, #ffffff 100%), linear-gradient(135deg, #465575, #7181a1);
+      background-origin: border-box;
+      background-clip: padding-box, border-box;
+      text-align: center;
+    }
+
+    .timeline-heading {
+      font-size: 32px;
+      color: #282e45;
+      margin-bottom: 40px;
+    }
+
+    .event-card {
+      background: linear-gradient(135deg, #0a0d18, #282b40);
+      height: 200px;
+      border-radius: 16px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 28px;
+      font-weight: bold;
+      transition: all 0.4s ease;
+      cursor: pointer;
+      margin: auto;
+      max-width: 600px;
+    }
+
+    .event-card:hover {
+      transform: scale(1.02);
+      filter: brightness(1.1);
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        height: 45vh;
+        min-height: 320px;
+        padding: 18px 8px 12px 8px;
+      }
+      .names {
+        font-size: 32px;
+      }
+      .date {
+        font-size: 15px;
+      }
+      .monogram-img {
+        width: 70px;
+        height: 70px;
+        margin-bottom: 18px;
+      }
+      .blessing-box {
+        padding: 15px 10px;
+        font-size: 15px;
+      }
+      .timeline-heading {
+        font-size: 20px;
+      }
+      .event-card {
+        height: 120px;
+        font-size: 18px;
+      }
+      .timeline-section {
+        padding: 18px 6vw;
+        margin: 32px 2vw;
+        border-radius: 24px;
+        box-shadow: 0 4px 16px rgba(40,46,69,0.10);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero {
+        height: 38vh;
+        min-height: 220px;
+        padding: 10px 2vw 8px 2vw;
+      }
+      .names {
+        font-size: 22px;
+      }
+      .date {
+        font-size: 12px;
+      }
+      .monogram-img {
+        width: 48px;
+        height: 48px;
+        margin-bottom: 10px;
+      }
+      .timeline-section {
+        padding: 12px 2vw;
+        margin: 18px 1vw;
+        border-radius: 18px;
+      }
+    }
+
+    .immersive-event-card {
+      position: relative;
+      width: 440px;
+      height: 230px;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(40,46,69,0.12), 0 2px 8px rgba(0,0,0,0.10);
+      cursor: pointer;
+      transition: width 0.6s cubic-bezier(0.77,0,0.175,1), box-shadow 0.4s, filter 0.3s;
+      background: linear-gradient(135deg, #0a0d18, #282b40);
+      outline: none;
+      display: flex;
+      align-items: stretch;
+      margin: 0;
+      max-width: 100%;
+      flex-direction: row;
+      margin-bottom: 32px;
+      animation: fadeInUp 0.7s cubic-bezier(.77,0,.18,1) both;
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px);}
+      to { opacity: 1; transform: none;}
+    }
+    .immersive-event-card .event-image {
+      background-image: url('mhendi_card_bg.jpg');
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      height: 100%;
+      width: 100%;
+      min-width: 100%;
+      max-width: 100%;
+      min-height: 100px;
+      margin: 0;
+      padding: 0;
+      border-radius: 16px;
+      transition: width 0.6s cubic-bezier(0.77,0,0.175,1), filter 0.3s, transform 0.6s cubic-bezier(0.77,0,0.175,1);
+      z-index: 1;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .immersive-event-card.expanded {
+      width: 700px;
+    }
+    .immersive-event-card.expanded .event-image {
+      width: 300px;
+      min-width: 300px;
+      max-width: 300px;
+      height: 100%;
+      border-radius: 20px 0 0 20px;
+      filter: blur(1px) brightness(0.88);
+      transform: translateX(0);
+    }
+    .immersive-event-card .event-title-on-image {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%) scale(1);
+      color: #fff;
+      font-size: 2.2rem;
+      font-weight: 700;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.85), 0 0 2px #000, 2px 2px 8px rgba(0,0,0,0.45);
+      letter-spacing: 2px;
+      text-align: center;
+      pointer-events: none;
+      opacity: 1;
+      background: none;
+      padding: 0;
+      border-radius: 0;
+      display: inline-block;
+      transition: opacity 0.4s cubic-bezier(0.77,0,0.175,1), transform 0.4s cubic-bezier(0.77,0,0.175,1);
+      z-index: 3;
+    }
+    .immersive-event-card:hover:not(.expanded):not(.just-collapsed) .event-title-on-image {
+      opacity: 0;
+      transform: translateY(-60%) scale(0.95);
+    }
+    .immersive-event-card:not(:hover):not(.expanded):not(.just-collapsed) .event-title-on-image {
+      opacity: 1;
+      transform: translateY(-50%) scale(1);
+    }
+    .immersive-event-card.expanded .event-title-on-image,
+    .immersive-event-card.just-collapsed .event-title-on-image {
+      opacity: 0;
+    }
+    .immersive-event-card .event-overlay {
+      position: absolute;
+      left: 0; top: 0; right: 0; bottom: 0;
+      background: rgba(40, 46, 69, 0.7);
+      color: #fff;
+      font-size: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s cubic-bezier(0.77,0,0.175,1), transform 0.4s cubic-bezier(0.77,0,0.175,1);
+      z-index: 2;
+      font-weight: 600;
+      letter-spacing: 1px;
+      width: 100%;
+      height: 100%;
+      transform: translateY(10%) scale(0.98);
+    }
+    .immersive-event-card:hover:not(.expanded):not(.just-collapsed) .event-overlay {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0) scale(1);
+    }
+    .immersive-event-card.expanded .event-overlay,
+    .immersive-event-card.just-collapsed .event-overlay {
+      opacity: 0 !important;
+      pointer-events: none !important;
+    }
+    .immersive-event-card .event-details {
+      background: #fff;
+      color: #282e45;
+      padding: 32px 28px;
+      min-width: 0;
+      width: 0;
+      opacity: 0;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border-radius: 0 16px 16px 0;
+      box-shadow: none;
+      transition: width 0.6s cubic-bezier(0.77,0,0.175,1), opacity 0.4s;
+      z-index: 2;
+    }
+    .immersive-event-card.expanded .event-details {
+      width: calc(100% - 350px);
+      opacity: 1;
+      box-shadow: -4px 0 16px rgba(40,46,69,0.08);
+    }
+    .immersive-event-card .event-title {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 18px;
+      color: #465575;
+    }
+    .immersive-event-card .event-info {
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+    }
+    .immersive-event-card .event-info a {
+      color: #7181a1;
+      text-decoration: underline;
+      transition: color 0.2s;
+    }
+    .immersive-event-card .event-info a:hover {
+      color: #465575;
+    }
+    @media (max-width: 900px) {
+      .immersive-event-card, .immersive-event-card.expanded {
+        width: 98vw;
+        min-width: 0;
+        max-width: 100vw;
+      }
+      .immersive-event-card.expanded .event-details {
+        width: 48vw;
+        min-width: 0;
+      }
+      .immersive-event-card.expanded .event-image {
+        transform: translateX(-50%);
+      }
+    }
+    @media (max-width: 600px) {
+      .immersive-event-card, .immersive-event-card.expanded {
+        position: relative;
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+        margin: 0 0 14px 0;
+        border-radius: 14px;
+        box-shadow: 0 2px 8px rgba(40,46,69,0.10);
+        height: 100px;
+        overflow: hidden;
+        background: linear-gradient(135deg, #0a0d18 0%, #282b40 100%);
+        transition: height 0.5s cubic-bezier(.77,0,.18,1), box-shadow 0.5s cubic-bezier(.77,0,.18,1), border-radius 0.5s cubic-bezier(.77,0,.18,1), margin 0.5s cubic-bezier(.77,0,.18,1);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+      }
+      .immersive-event-card .event-image {
+        position: static;
+        width: 120px;
+        min-width: 120px;
+        max-width: 120px;
+        height: 80px;
+        border-radius: 14px 0 0 14px;
+        margin: 0;
+        padding: 0;
+        background-size: cover;
+        background-position: center;
+        display: block;
+        box-shadow: 0 2px 8px rgba(40,46,69,0.10);
+        transition: width 0.5s cubic-bezier(.77,0,.18,1), height 0.5s cubic-bezier(.77,0,.18,1), border-radius 0.5s cubic-bezier(.77,0,.18,1), margin 0.5s cubic-bezier(.77,0,.18,1), box-shadow 0.5s cubic-bezier(.77,0,.18,1);
+        z-index: 2;
+      }
+      .immersive-event-card .event-details {
+        margin-left: 0;
+        width: calc(100% - 120px);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 0 12px;
+        color: #fff;
+        background: none;
+        font-size: 1.05em;
+        opacity: 1;
+        transition: opacity 0.3s, padding 0.5s cubic-bezier(.77,0,.18,1), background 0.5s cubic-bezier(.77,0,.18,1);
+      }
+      .immersive-event-card .event-title {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: #fdf1e7;
+        margin-bottom: 0;
+        letter-spacing: 0.5px;
+        text-align: left;
+      }
+      .immersive-event-card .event-info {
+        display: none;
+      }
+      .immersive-event-card.expanded {
+        height: auto;
+        min-height: 180px;
+        flex-direction: column;
+        align-items: stretch;
+        transition: height 0.35s cubic-bezier(.77,0,.18,1);
+      }
+      .immersive-event-card.expanded .event-image {
+        position: static;
+        left: auto;
+        top: auto;
+        transform: none;
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+        height: 120px;
+        border-radius: 14px 14px 0 0;
+        margin: 0 auto;
+        display: block;
+        object-fit: cover;
+        box-shadow: none;
+        transition: all 0.35s cubic-bezier(.77,0,.18,1);
+        z-index: 1;
+      }
+      .immersive-event-card.expanded .event-details {
+        margin-left: 0;
+        width: 100%;
+        padding: 12px 10px 8px 10px;
+        background: #f7f7fa;
+        color: #282e45;
+        border-radius: 0 0 14px 14px;
+        font-size: 1.08em;
+        opacity: 1;
+      }
+      .immersive-event-card.expanded .event-title {
+        color: #465575;
+        font-size: 1.13rem;
+        margin-bottom: 8px;
+        text-align: left;
+      }
+      .immersive-event-card.expanded .event-info {
+        display: block;
+        font-size: 0.98em;
+        margin-bottom: 6px;
+        line-height: 1.5;
+      }
+      .immersive-event-card.expanded .event-info:last-child {
+        margin-bottom: 0;
+      }
+      .immersive-event-card .event-title-on-image,
+      .immersive-event-card .event-overlay {
+        display: none !important;
+      }
+      .timeline-section {
+        margin-bottom: 18vw;
+      }
+    }
+    .timeline-section .immersive-event-card:last-child {
+      margin-bottom: 0;
+    }
+    .immersive-event-card:nth-of-type(3) .event-image {
+      background-image: url('Barat_card_bg.jpg');
+    }
+    .immersive-event-card:nth-of-type(4) .event-image {
+      background-image: url('Walima_card_bg.jpg');
+    }
+    .event-image::after {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; right: 0; bottom: 0;
+      background: linear-gradient(90deg, rgba(40,46,69,0.18) 0%, rgba(0,0,0,0.08) 100%);
+      border-radius: inherit;
+      z-index: 2;
+      pointer-events: none;
+    }
+    .section-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 32px 0;
+      width: 100%;
+    }
+    .section-divider::before {
+      content: '';
+      flex: 1 1 0;
+      min-width: 40px;
+      height: 2px;
+      background: linear-gradient(90deg, #465575 0%, #fdf1e7 100%);
+      margin: 0 16px;
+      border-radius: 2px;
+      opacity: 0.3;
+    }
+    .section-divider::after {
+      content: '';
+      flex: 1 1 0;
+      min-width: 40px;
+      height: 2px;
+      background: linear-gradient(270deg, #465575 0%, #fdf1e7 100%);
+      margin: 0 16px;
+      border-radius: 2px;
+      opacity: 0.3;
+    }
+    .divider-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+    }
+    .site-footer {
+      background: linear-gradient(180deg, #0a0c18 0%, #282b40 100%) !important;
+      color: #fdf1e7;
+      text-align: center;
+      padding: 3px 0 2px 0;
+      font-size: 0.72rem;
+      letter-spacing: 0.9px;
+      opacity: 0.85;
+      margin-top: 18px;
+      border-radius: 0;
+    }
+    .footer-signature {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.78rem;
+      opacity: 0.85;
+      letter-spacing: 0.9px;
+    }
+  </style>
+</head>
+<body>
+  <section class="hero">
+    <div class="hero-content">
+      <img src="monogram.png" alt="J & M Monogram" class="monogram-img" />
+      <div class="names">Junaid & Momina</div>
+      <div class="date">August 2025</div>
+    </div>
+  </section>
+
+  <section class="blessing-box" onclick="this.classList.toggle('show-translation')">
+    <span class="ayat-arabic">"رَبَّنَا هَبْ لَنَا مِنْ أَزْوَٰجِنَا وَذُرِّيَّاتِنَا قُرَّةَ أَعْيُنٍۢ وَٱجْعَلْنَا لِلْمُتَّقِينَ إِمَامًا"</span>
+    <span class="ayat-ref">— Surah Al-Furqan [25:74]</span>
+    <div class="hint">Click to view translation</div>
+    <div class="translation">“Our Lord, grant us from among our wives and offspring comfort to our eyes and make us an example for the righteous.”</div>
+  </section>
+
+  <div class="section-divider">
+    <span class="divider-icon">
+      <img src="mhendi icon.png" alt="Mehndi Icon" style="height: 40px; width: 40px; object-fit: contain; vertical-align: middle; filter: drop-shadow(0 2px 6px rgba(40,46,69,0.12)); opacity: 0.9;" />
+      <img src="barat icon.png" alt="Barat Icon" style="height: 40px; width: 40px; object-fit: contain; vertical-align: middle; filter: drop-shadow(0 2px 6px rgba(40,46,69,0.12)); opacity: 0.9;" />
+      <img src="walima icon.png" alt="Walima Icon" style="height: 40px; width: 40px; object-fit: contain; vertical-align: middle; filter: drop-shadow(0 2px 6px rgba(40,46,69,0.12)); opacity: 0.9;" />
+    </span>
+  </div>
+
+  <section class="timeline-section">
+    <div class="timeline-heading">Important Events</div>
+    <div class="event-card immersive-event-card" tabindex="0">
+      <div class="event-image">
+        <div class="event-title-on-image">Mehndi</div>
+        <div class="event-overlay">More Details</div>
+      </div>
+      <div class="event-details">
+        <div class="event-title">Mehndi</div>
+        <div class="event-info"><strong>Date:</strong> 7 August</div>
+        <div class="event-info"><strong>Venue:</strong> <a href="https://www.facebook.com/kibabishmarriagehall/" target="_blank" rel="noopener">Kababish Marquee</a></div>
+        <div class="event-info"><strong>Arrival Time:</strong> 8pm</div>
+        <div class="event-info"><strong>Dinner Time:</strong> 10pm</div>
+      </div>
+    </div>
+    <div class="event-card immersive-event-card" tabindex="0">
+      <div class="event-image">
+        <div class="event-title-on-image">Barat</div>
+        <div class="event-overlay">More Details</div>
+      </div>
+      <div class="event-details">
+        <div class="event-title">Barat</div>
+        <div class="event-info"><strong>Date:</strong> 8 August</div>
+        <div class="event-info"><strong>Venue:</strong> <a href="https://www.facebook.com/kibabishmarriagehall/" target="_blank" rel="noopener">Kababish Marquee</a></div>
+        <div class="event-info"><strong>Arrival Time:</strong> 8pm</div>
+        <div class="event-info"><strong>Dinner Time:</strong> 10pm</div>
+      </div>
+    </div>
+    <div class="event-card immersive-event-card" tabindex="0">
+      <div class="event-image">
+        <div class="event-title-on-image">Walima</div>
+        <div class="event-overlay">More Details</div>
+      </div>
+      <div class="event-details">
+        <div class="event-title">Walima</div>
+        <div class="event-info"><strong>Date:</strong> 9 August</div>
+        <div class="event-info"><strong>Venue:</strong> <a href="https://www.facebook.com/kibabishmarriagehall/" target="_blank" rel="noopener">Kababish Marquee</a></div>
+        <div class="event-info"><strong>Arrival Time:</strong> 8pm</div>
+        <div class="event-info"><strong>Dinner Time:</strong> 10pm</div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <span class="footer-signature">Designed &amp; developed by Sohaib Saeed</span>
+  </footer>
+
+  <script>
+    function isMobile() {
+      return window.matchMedia('(max-width: 600px)').matches;
+    }
+    function collapseAllCards() {
+      document.querySelectorAll('.immersive-event-card').forEach(card => {
+        card.classList.remove('expanded');
+      });
+    }
+    document.querySelectorAll('.immersive-event-card').forEach(card => {
+      card.addEventListener('click', function(e) {
+        if (e.target.tagName.toLowerCase() === 'a') return;
+        if (isMobile()) {
+          if (this.classList.contains('expanded')) {
+            this.classList.remove('expanded');
+          } else {
+            collapseAllCards();
+            this.classList.add('expanded');
+          }
+        } else {
+          if (this.classList.contains('expanded')) {
+            this.classList.remove('expanded');
+            this.classList.add('just-collapsed');
+            setTimeout(() => {
+              this.classList.remove('just-collapsed');
+            }, 300);
+          } else {
+            this.classList.add('expanded');
+          }
+        }
+      });
+      card.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          if (isMobile()) {
+            if (this.classList.contains('expanded')) {
+              this.classList.remove('expanded');
+            } else {
+              collapseAllCards();
+              this.classList.add('expanded');
+            }
+          } else {
+            if (this.classList.contains('expanded')) {
+              this.classList.remove('expanded');
+              this.classList.add('just-collapsed');
+              setTimeout(() => {
+                this.classList.remove('just-collapsed');
+              }, 300);
+            } else {
+              this.classList.add('expanded');
+            }
+          }
+          e.preventDefault();
+        }
+      });
+    });
+  </script>
+</body>
+</html>
